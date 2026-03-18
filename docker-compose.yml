@@ -25,6 +25,13 @@ services:
       - FORGEJO__storage__MINIO_USE_SSL=true
       - FORGEJO__storage__MINIO_NO_CHECK_BUCKET=true
 
+      - FORGEJO__mailer__ENABLED=true
+      - FORGEJO__mailer__SMTP_ADDR=smtp-relay.brevo.com
+      - FORGEJO__mailer__SMTP_PORT=587             
+      - FORGEJO__mailer__USER=${EMAIL_USER}
+      - FORGEJO__mailer__PASSWD=${EMAIL_PASSWORD}
+      - FORGEJO__mailer__FROM=forgejo@ff-soft.dev
+
     volumes:
       - data:/data
       - data_localtime:/etc/localtime:ro
